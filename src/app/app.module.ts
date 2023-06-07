@@ -7,7 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { MainModule } from './main';
 import { SecurityModule } from './security';
 
-import { ArtAndDocCoreModule } from 'src/lib/art-and-doc-core';
+import { ArtAndDocCoreModule, LoggerService, LOGGER_VERBOSE_LEVEL } from 'src/lib/art-and-doc-core';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -21,8 +22,13 @@ import { ArtAndDocCoreModule } from 'src/lib/art-and-doc-core';
     SecurityModule,
     AppRoutingModule,
     ArtAndDocCoreModule,
+
   ],
-  providers: [],
+  providers: [
+    LoggerService,
+    { provide: LOGGER_VERBOSE_LEVEL, useValue: environment.LOGGER_VERBOSE_LEVEL }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
