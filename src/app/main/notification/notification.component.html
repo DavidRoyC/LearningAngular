@@ -1,0 +1,28 @@
+<div class="notificaciones" *ngIf="VM.HasNotifications">
+  <div
+    class="alert {{
+      item.Type
+        | i18nSelect
+          : {
+              error: 'alert-danger',
+              warn: 'alert-warning',
+              info: 'alert-primary',
+              other: 'alert-success'
+            }
+    }} alert-dismissible fade show"
+    role="alert"
+    *ngFor="let item of VM.Notifications; let i = index"
+  >
+    {{ item.Message }}
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+      (click)="VM.remove(i)"
+    ></button>
+  </div>
+  <div class="center">
+    <button class="btn btn-info btn-sm" type="button" (click)="VM.clear()">Limpiar notificaciones</button>
+  </div>
+</div>

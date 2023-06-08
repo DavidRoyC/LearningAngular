@@ -9,17 +9,21 @@ import { SecurityModule } from './security';
 
 import { ArtAndDocCoreModule, LoggerService, LOGGER_VERBOSE_LEVEL } from 'src/lib/art-and-doc-core';
 import { environment } from 'src/environments/environment';
+import { CommonServicesModule } from './common-services';
+import { DemosComponent } from './demos/demos.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DemosComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     MainModule,
     SecurityModule,
+    CommonServicesModule,
     AppRoutingModule,
     ArtAndDocCoreModule,
 
