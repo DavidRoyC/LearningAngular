@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
 import { LoggerService } from 'src/lib/art-and-doc-core';
 
 export enum NotificationType {
@@ -14,23 +15,35 @@ export class Notification {
     private message: string,
     private type: NotificationType
   ) {}
+
   public get Id() {
     return this.id;
   }
+
   public get Message() {
     return this.message;
   }
+
   public get Type() {
     return this.type;
   }
 }
 
 @Injectable({ providedIn: 'root' })
-export class NotificationService {
+export class NotificationService implements OnDestroy {
+  private notification$ = new Subject<Notification>();
   private notifications: Array<Notification> = [];
   public readonly NotificationType = NotificationType;
 
   constructor(private out: LoggerService) {}
+
+  ngOnDestroy(): void {
+    this.notification$.complete();
+  }
+
+  public get Notification() {
+    return this.notification$;
+  }
 
   public get Notifications(): Array<Notification> {
     return Object.assign([], this.notifications);
@@ -50,6 +63,7 @@ export class NotificationService {
       : 1;
     const n = new Notification(id, msg, type);
     this.notifications.push(n);
+    this.notification$.next(n);
 
     // Redundancia: Los errores también se muestran en consola
     if (type === NotificationType.error) {
@@ -62,7 +76,7 @@ export class NotificationService {
       this.out.error('Index out of range.');
       return;
     }
-    this.notifications.splice(index, 1)
+    this.notifications.splice(index, 1);
   }
 
   public clear() {
