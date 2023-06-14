@@ -11,12 +11,16 @@ import { ArtAndDocCoreModule, LoggerService, LOGGER_VERBOSE_LEVEL } from 'src/li
 import { environment } from 'src/environments/environment';
 import { CommonServicesModule } from './common-services';
 import { DemosComponent } from './demos/demos.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CalcComponent } from './calc/calc.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemosComponent
+    DemosComponent,
+    DashboardComponent,
+    CalcComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,7 @@
+<nav>
+  <button type="button" *ngFor="let item of menu; let current=index;" (click)="select(current)">{{item.text}}</button>
+</nav>
+<app-notification />
+<main class="container-fluid">
+  <ng-container *ngComponentOutlet="actual" />
+</main>

@@ -1,0 +1,12 @@
+.important {
+  font-size: 1.2rem;
+}
+.error {
+  color: red;
+}
+.urgent {
+  font-style: italic;
+}
+.semivisible {
+  opacity: 30%;
+}

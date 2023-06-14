@@ -19,7 +19,10 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
+            "prefix": [
+              "app",
+              "lib"
+            ],
             "style": "camelCase"
           }
         ],
@@ -27,7 +30,10 @@
           "error",
           {
             "type": "element",
-            "prefix": "app",
+            "prefix": [
+              "app",
+              "lib"
+            ],
             "style": "kebab-case"
           }
         ]

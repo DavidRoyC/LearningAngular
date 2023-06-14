@@ -1,0 +1,112 @@
+#calc {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  background-color: #e6f3ff !important;
+  border-style: outset !important;
+  padding: 6px !important;
+  margin: 4px !important;
+  max-width: 100%;
+  min-width: 150px;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+@media (min-width: 768px) {
+  #calc {
+    max-width: 500px;
+  }
+}
+@media (min-width: 992px) {
+  #calc {
+    max-width: 700px;
+  }
+}
+@media (min-width: 1200px) {
+  #calc {
+    max-width: 900px;
+  }
+}
+
+#calc #screen {
+  grid-column: 1/span 4;
+  background-color: #004000;
+  color: yellow;
+  border-style: inset !important;
+  text-align: right !important;
+  padding: 4px !important;
+  word-wrap: break-word;
+}
+#calc #screen #ongoing {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (min-width: 576px) {
+  #calc #screen #ongoing {
+    font-size: 1.2em !important;
+  }
+  #calc #screen #current{
+    font-size: 2em !important;
+  }
+}
+@media (min-width: 768px) {
+  #calc #screen #ongoing {
+    font-size: 1.4em !important;
+  }
+  #calc #screen #current{
+    font-size: 2.5em !important;
+  }
+}
+@media (min-width: 992px) {
+  #calc #screen #ongoing {
+    font-size: 1.6em !important;
+  }
+  #calc #screen #current {
+    font-size: 3em !important;
+  }
+}
+@media (min-width: 1200px) {
+  #calc #screen #ongoing {
+    font-size: 1.8em !important;
+  }
+  #calc #screen #current {
+    font-size: 3.5em !important;
+  }
+}
+
+#calc button {
+  width: 100%;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+#calc .btnDigit {
+  color: #cecefa;
+}
+#calc .btnOperation {
+  color: #8888fa;
+}
+#calc .btnDouble {
+  grid-column: 1 / span 2
+}
+#calc .btnQuad {
+  grid-column: 1 / span 4
+}
+@media (min-width: 576px) {
+  #calc button {
+    font-size: 1.3em !important;
+  }
+}
+@media (min-width: 768px) {
+  #calc button {
+    font-size: 1.6em !important;
+  }
+}
+@media (min-width: 992px) {
+  #calc button {
+    font-size: 1.6em !important;
+  }
+}
+@media (min-width: 1200px) {
+  #calc button {
+    font-size: 2.2em !important;
+  }
+}

@@ -1,0 +1,39 @@
+<div id="calc">
+  <div id="screen">
+    <output id="ongoing"><ng-container *ngIf="DecimalSeparator === ','; then OngoingSemicolon; else OngoingPoint;"></ng-container></output>
+    <output id="current"><ng-container *ngIf="DecimalSeparator === ','; then CurrentSemicolon; else CurrentPoint;"></ng-container></output>
+  </div>
+
+  <button type="button" class="btnOperation btnDouble" (clic)="initialize()">C</button>
+  <button type="button" class="btnOperation btnDouble" (clic)="delete()">&#9003;</button>
+
+  <button type="button" class="btnDigit">7</button>
+  <button type="button" class="btnDigit">8</button>
+  <button type="button" class="btnDigit">9</button>
+  <button type="button" class="btnOperation">/</button>
+
+  <button type="button" class="btnDigit">4</button>
+  <button type="button" class="btnDigit">5</button>
+  <button type="button" class="btnDigit">6</button>
+  <button type="button" class="btnOperation">*</button>
+
+  <button type="button" class="btnDigit">1</button>
+  <button type="button" class="btnDigit">2</button>
+  <button type="button" class="btnDigit">3</button>
+  <button type="button" class="btnOperation">-</button>
+
+
+  <button type="button" class="btnDigit">&pm;</button>
+  <button type="button" class="btnDigit">0</button>
+  <button type="button" class="btnDigit">.</button>
+  <button type="button" class="btnOperation">+</button>
+
+
+  <button type="button" class="btnOperation btnQuad">=</button>
+
+</div>
+
+<ng-template #OngoingSemicolon>{{Ongoing | slice:-30 | toDecimalPoint}}</ng-template>
+<ng-template #OngoingPoint>{{Ongoing | slice:-30}}</ng-template>
+<ng-template #CurrentSemicolon>{{Current | toDecimalPoint}}</ng-template>
+<ng-template #CurrentPoint>{{Current}}</ng-template>
