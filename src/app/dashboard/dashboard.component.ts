@@ -4,6 +4,7 @@ import { DemosComponent } from '../demos/demos.component';
 import GraphicSvgComponent from 'src/lib/independientes/graphic-svg/graphic-svg.component';
 import { CalcComponent } from '../calc/calc.component';
 import { RegisterFormComponent } from '../register-form/register-form.component';
+import { ContactosComponent } from '../contacts/componente.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +13,7 @@ import { RegisterFormComponent } from '../register-form/register-form.component'
 })
 export class DashboardComponent {
   menu = [
+    { text: 'contactos', icon: '', component: ContactosComponent},
     { text: 'registro', icon: '', component: RegisterFormComponent},
     { text: 'calculadora', icon: '', component: CalcComponent},
     { text: 'demos', icon: '', component: DemosComponent},
