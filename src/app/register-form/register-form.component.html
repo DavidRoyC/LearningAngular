@@ -1,0 +1,47 @@
+<div class="my-3">
+  <button class="btn btn-primary me-2" type="button" (click)="add()">Añadir</button>
+  <button class="btn btn-primary" type="button" (click)="edit()">Editar</button>
+</div>
+
+<form #registerForm="ngForm">
+  <div class="mb-3">
+    <label class="form-label" for="id">Identificador</label>
+    <input class="form-control" type="number" name="id" id="id" [(ngModel)]="user.id" #id="ngModel" required>
+    <output class="error" [hidden]="!id.getError('required') || registerForm.pristine">Campo obligatorio</output>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="name">Nombre</label>
+    <input class="form-control" type="text" name="name" id="name" [(ngModel)]="user.name" #name="ngModel" required minlength="2" maxlength="20">
+    <output class="error" [hidden]="!name.getError('required') || registerForm.pristine">Campo obligatorio</output>
+    <output class="error" [hidden]="!name.getError('minlength') && !name.getError('maxlength') || registerForm.pristine">Debe tener entre 2 y 20 caracteres.</output>
+    <output class="error" [hidden]="name.valid || registerForm.pristine">{{name.errors | json}}</output>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="surname">Apellidos</label>
+    <input class="form-control" type="text" name="surname" id="surname" [(ngModel)]="user.surname" #surname="ngModel" maxlength="40">
+    <output class="error" [hidden]="!surname.getError('maxlength')">Debe tener menos de 40 caracteres.</output>
+    <output class="error" [hidden]="surname.valid">{{surname.errors | json}}</output>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="email">Correo electrónico</label>
+    <input class="form-control" type="email" name="email" id="email" [(ngModel)]="user.email" #email="ngModel" >
+    <output class="error" [hidden]="email.valid">{{email.errors | json}}</output>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="nif">NIF</label>
+    <input class="form-control" type="text" name="nif" id="nif" [(ngModel)]="user.nif" #nif="ngModel" nif>
+    <output class="error" [hidden]="nif.valid">{{nif.errors | json}}</output>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="age">Edad</label>
+    <input class="form-control" type="number" name="age" id="age" [(ngModel)]="user.age" #age="ngModel" min="16" max="67">
+    <output class="error" [hidden]="age.valid">{{age.errors | json}}</output>
+  </div>
+  <div class="mb-3 pt-2 border-top border-1">
+    <button  type="button" class="btn btn-primary me-2" (click)="send()" [disabled]="registerForm.invalid">Enviar</button>
+    <button  type="button" class="btn btn-secondary" (click)="cancel()">Volver</button>
+  </div>
+</form>
+
+{{user | json}}

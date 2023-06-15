@@ -1,0 +1,15 @@
+.error {
+  color: red;
+  font-size: .8em;
+}
+
+.ng-invalid {
+  border-color: lightcoral;
+}
+
+.ng-valid {
+  border-color: aquamarine;
+}
+.ng-pristine {
+  border-color: goldenrod;
+}

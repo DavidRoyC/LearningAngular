@@ -13,6 +13,7 @@ import { CommonServicesModule } from './common-services';
 import { DemosComponent } from './demos/demos.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CalcComponent } from './calc/calc.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CalcComponent } from './calc/calc.component';
     AppComponent,
     DemosComponent,
     DashboardComponent,
-    CalcComponent
+    CalcComponent,
+    RegisterFormComponent
   ],
   imports: [
     BrowserModule,

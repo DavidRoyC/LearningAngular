@@ -3,6 +3,7 @@ import { HomeComponent } from '../main';
 import { DemosComponent } from '../demos/demos.component';
 import GraphicSvgComponent from 'src/lib/independientes/graphic-svg/graphic-svg.component';
 import { CalcComponent } from '../calc/calc.component';
+import { RegisterFormComponent } from '../register-form/register-form.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +12,7 @@ import { CalcComponent } from '../calc/calc.component';
 })
 export class DashboardComponent {
   menu = [
+    { text: 'registro', icon: '', component: RegisterFormComponent},
     { text: 'calculadora', icon: '', component: CalcComponent},
     { text: 'demos', icon: '', component: DemosComponent},
     { text: 'inicio', icon: '', component: HomeComponent},
