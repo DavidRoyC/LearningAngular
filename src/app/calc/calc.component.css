@@ -85,7 +85,7 @@
   color: #8888fa;
 }
 #calc .btnDouble {
-  grid-column: 1 / span 2
+  grid-column: span 2
 }
 #calc .btnQuad {
   grid-column: 1 / span 4
