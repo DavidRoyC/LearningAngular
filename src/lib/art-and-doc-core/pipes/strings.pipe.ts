@@ -5,7 +5,7 @@ export class EllipsisPipe implements PipeTransform {
   transform(value: string, maxlen: number): string {
     return !maxlen || maxlen < 2 || !value || value.length < maxlen
       ? value
-      : value.substr(0, maxlen - 1) + '\u2026';
+      : value.substring(0, maxlen - 1) + '\u2026';
   }
 }
 
