@@ -18,18 +18,15 @@ export class CapitalizePipe implements PipeTransform {
       .split('.')
       .map((str) => str.trim())
       .map((str, index, array) => {
-        const ending =
-          array.length > 1 && index + 1 < array.length
-            ? array[index + 1] === ''
-              ? '.'
-              : '. '
-            : '';
-        str.length === 0
-          ? ending
-          : str.charAt(0)?.toUpperCase() + str?.substring(1) + ending;
+        const ending = array.length > 1 && index + 1 < array.length ? array[index + 1] === '' ? '.' : '. ' : '';
+        return str.length === 0 ? ending : str.charAt(0)?.toUpperCase() + str?.substring(1) + ending;
       })
       .join('')
       .trim();
+      return value?.toString().toLowerCase().split(".").map(frase => frase.trim())
+      .map((frase, index, array) => frase.length === 0  ? (array.length > 1 && index + 1 < array.length  ? (array[index + 1] ==='' ? '.' : '. '): '')
+       : frase.charAt(0)?.toUpperCase() + frase?.substring(1) + (array.length > 1 && index + 1 < array.length ? (array[index + 1] ==='' ? '.' : '. '):''))
+      .join('').trim()
   }
 }
 
